@@ -1,0 +1,32 @@
+    <%if flash[:error].present?%>
+    <% flash[:error].each_with_index do |k,v|%><li><%= flash[:error][v] %></li><%end%>
+    <%end%>
+    
+  <div id="cadastro">
+        <form method="post" action="cadastro"> 
+          <h1>Cadastro</h1> 
+          
+        <p> 
+            <label for="nome_cad">Seu nome</label>
+            <input name="nome_cad" required="required" type="text" value="macho"/>
+        </p>
+          
+        <p> 
+            <label for="email_cad">Seu e-mail</label>
+            <input id="email_cad" name="email_cad" required="required" type="email" value="machomuitoalpha2022@gmail.com"/> 
+        </p>
+          
+        <p> 
+            <label for="senha_cad">Sua senha</label>
+            <input id="senha_cad" name="senha_cad" required="required" type="text" value="macho2-004!"/>
+            <span class="message_hide_password success">Valid Password!</span>
+            <span class="message_hide_password error">Invalid Password!</span>
+        </p>
+        
+        <p> 
+            <input type="submit" value="Cadastrar">
+        </p>
+    </form>
+  
+        <div><a href="/">ir para o login</a></div>
+    </div>

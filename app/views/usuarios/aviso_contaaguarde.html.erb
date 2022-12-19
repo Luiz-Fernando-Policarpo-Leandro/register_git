@@ -1,0 +1,12 @@
+<h3>aviso conta aguardando</h3>
+<%if flash[:error].present?%><h5><%= flash[:error] %></h5><%end%>
+<div>
+<form method="post" action="/aviso_verificar" >
+    <div>
+        <label for="email">isnsira a senha:</label>
+        <input name="email_aviso" type="text" value=""/>
+    </div>
+   <input type="submit" value="verificar"/>
+</form>
+</div>
+<td><%= link_to "Enviar email", enviar_email_path%></td>

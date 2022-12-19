@@ -1,0 +1,30 @@
+<h1>bem vindo</h1>
+
+<br>
+<fieldset>
+<% if flash[:erro].present?%><p><li><%=flash[:erro]%></li></p><%end%>
+<form id='login-bord' method='post' action='/login'>
+    <p>
+        <label for='email'>Email:</label>
+        <input type='text' name='email' id='email' placeholder="preencha aqui com seu email" required="required" value='machomuitoalpha2022@gmail.com'>
+    </p>
+    <p>
+        <label for='senha'>Senha:</label>
+        <input type='password' name='senha' id='senha' placeholder="preencha aqui com sua senha" required="required" value='macho2-004!'>
+        
+    </p>
+    
+    <%= recaptcha_tags %>
+
+    <br>
+    <input type="submit" value="logar">
+</form>
+
+</fieldset>
+
+
+
+
+
+<a href='/cadastro'>você não possui uma conta?</a>
+<a href='/recuperar-senha'>esqueci a senha</a>
