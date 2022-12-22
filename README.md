@@ -1,24 +1,61 @@
-# README
+# Petshop_git
+this is a project 
+that resembles a pet 
+shop website, with 
+the aim of improving
+my responsive web skills.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+before startup the server, you will 
+need to created the `.env` on the **petshop_git** and add the Constants:
+* `DATABASE_USERNAME` and `DATABASE_PASSWORD`:
+```yml
+# config/database.yml 
 
-* System dependencies
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD']%>
+  host: localhost
+```
+* `DEVELOPMENT_GMAIL` and `DEVELOPMENT_GMAIL_PASSWORD`:
+```ruby
+# config/environments/development.rb
 
-* Configuration
+config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                  587,
+    user_name:            ENV['DEVELOPMENT_GMAIL'],
+    password:             ENV['DEVELOPMENT_GMAIL_PASSWORD'],
+    authentication:       'login',
+    enable_starttls_auto: true, 
+    open_timeout:         5,
+    read_timeout:         5 
+}
 
-* Database creation
+# and app/mailers/application_mailer.rb
 
-* Database initialization
+class ApplicationMailer < ActionMailer::Base
+  default from: ENV['DEVELOPMENT_GMAIL']
+  layout "mailer"
+end
 
-* How to run the test suite
+```
+* `RECAPTCHA_SITE_KEY` and `RECAPTCHA_SECRETE_KEY`:
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+# config/initializers/recaptcha.rb
+Recaptcha.configure do |config|
+    config.site_key  = ENV['RECAPTCHA_SITE_KEY']
+    config.secret_key = ENV['RECAPTCHA_SECRETE_KEY']
+end
 
-* Deployment instructions
+```
 
-* ...
+Then, put the `bundle install` on your terminal
+to install the gems,
+and after do migrate of the database, sartup the server.
