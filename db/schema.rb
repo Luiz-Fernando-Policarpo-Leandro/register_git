@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_231824) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ndeverificacao"
-    t.integer "status_usuario"
+    t.string "status_usuario"
   end
 
   add_foreign_key "senha_de_segurancas", "usuarios"
