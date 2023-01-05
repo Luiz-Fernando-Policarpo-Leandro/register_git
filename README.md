@@ -1,7 +1,6 @@
-# Petshop_git
+# Register
 this is a project 
-that resembles a pet 
-shop website, with 
+that resembles a register and login's website, with 
 the aim of improving
 my responsive web skills.
 
@@ -9,7 +8,7 @@ my responsive web skills.
 ## Installation
 
 before startup the server, you will 
-need to created the `.env` on the **petshop_git** and add the Constants:
+need to created the `.env` on the **Register** and add the Constants:
 * `DATABASE_USERNAME` and `DATABASE_PASSWORD`:
 ```yml
 # config/database.yml 
